@@ -3,375 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Senthilkumar I | Modern Portfolio</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Portfolio</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+    <div id="root"></div>
 
-    <!-- Hero Section - Photo First on Mobile -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-img-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Photo" class="profile-img">
-                </div>
-                <div class="hero-text">
-                    <h1>Hi, I'm <span>Senthilkumar</span></h1>
-                    <p>A passionate Full Stack Developer with expertise in creating responsive, modern web applications. I love turning complex problems into simple, beautiful designs.</p>
-                    <!-- <a href="#projects" class="btn">View My Work</a> -->
-                </div>
-            </div>
-        </div>
-    </section>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Brief Bio</h3>
-                    <p>I’m Senthilkumar, a passionate and enthusiastic fresher with a B.Tech in Information Technology. I love exploring new technologies and building interactive and user-friendly web applications. I am eager to apply my skills to real-world projects and grow as a full-stack developer.
-                         I enjoy learning, problem-solving, and creating projects that make a positive impact.</p>
-                    <!-- <p>I enjoy solving complex problems and continuously learning new technologies
-                        . When I'm not coding, you can find me hiking, reading tech blogs, or experi
-                        menting with new programming frameworks.</p> -->
-                    
-                    <!-- <div class="interests">
-                        <span class="interest-item">Web Development</span>
-                        <span class="interest-item">UI/UX Design</span>
-                        <span class="interest-item">Open Source</span>
-                        <span class="interest-item">Photography</span>
-                        <span class="interest-item">Hiking</span>
-                    </div> -->
-                </div>
-                <div class="about-text">
-                    <h3>Background & Education</h3>
-                    <p>I am a B.Tech IT graduate passionate about web development. I enjoy building simple, clean, and
-                         functional websites and I am excited to start my career as a software developer.</p>
-                    <!-- <p>My professional background includes working as a junior developer at a startup, where I contributed to building their customer-facing web application using React and Node.js.</p>
-                    <p>I'm currently expanding my skills in backend development with Django and exploring cloud
-                         technologies like AWS.</p> -->
-                </div>
-            </div>
-        </div>
-    </section>
+        const Portfolio = () => {
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+            const [activeSection, setActiveSection] = useState('home');
+            const [splashVisible, setSplashVisible] = useState(true);
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <div class="section-header">
-                <h2>Education</h2>
-            </div>
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <h3>Erode Sengunthar Engineering College</h3>
-                    <div class="degree">Btech Information Technology</div>
-                    <div class="year">2021 - 2025</div>
-                    <!-- <p>Graduated with honors. Focused on software engineering, web development, and database systems. Completed capstone project on an e-commerce platform.</p> -->
-                </div>
-                <!-- <div class="timeline-item">
-                    <h3>Code Academy</h3>
-                    <div class="degree">Full Stack Web Development Certificate</div>
-                    <div class="year">2021 - 2022</div>
-                    <p>Completed intensive program covering front-end and back-end technologies including HTML, CSS, JavaScript, React, Node.js, and MongoDB.</p>
-                </div> -->
-                <div class="timeline-item">
-                    <h3>Velammal Matriculation Higher Secondary School</h3>
-                    <div class="degree">HSC</div>
-                    <div class="year">2019 - 2021</div>
-                    <p>86%</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            const toggleMobileMenu = () => {
+                setMobileMenuOpen(!mobileMenuOpen);
+            };
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>Skills</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-name">HTML</span></li>
-                        <li><span class="skill-name">CSS</span></li>
-                        <li><span class="skill-name">JavaScript </span></li>
-                        <!-- <li><span class="skill-name">React Basics</span></li> -->
-                        <li><span class="skill-name">Responsive Design</span></li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-name">MySQL</span></li>
-                        <li><span class="skill-name">PHP</span></li>
-                        <li><span class="skill-name">Java</span></li>
-                        <!-- <li><span class="skill-name">RESTful APIs</span></li> -->
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Others</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-name">VS Code</span></li>
-                        <li><span class="skill-name">Git & GitHub</span></li>
-                        <li><span class="skill-name">MySQL Workbench</span></li>
-                        <li><span class="skill-name">XAMPP</span></li>
-                        
-                      <!-- <li><span class="skill-name">Figma Basics</span></li>  -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Website</h3>
-                        <p>A fully functional e-commerce platform with user authentication, product catalog, shopping cart, and payment integration.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-tasks"></i>
-                    </div> -->
-                    <!-- <div class="project-content">
-                        <h3>Task Management App</h3>
-                        <p>A responsive web application for managing daily tasks with features like drag & drop, filtering, and priority settings.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Local Storage</span>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="project-content">
-                       <h3>India Tourist Guide Website</h3>
-<p>A dynamic website designed to help tourists explore the top attractions in India. 
-<!-- The homepage displays famous tourist places across the country and lists all Indian states. 
-When a state is selected, users can view its popular tourist spots. 
-The project also includes an admin panel where new places can be added using a simple PHP-based backend.</p> -->
-
-<div class="tech-tags">
-    <span class="tech-tag">HTML</span>
-    <span class="tech-tag">CSS</span>
-    <span class="tech-tag">JavaScript</span>
-    <span class="tech-tag">PHP</span>
-    <span class="tech-tag">MySQL</span>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact Me</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong><br>
-                                <a href="mailto:isenthiler@gmail.com">isenthiler@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Phone</strong><br>
-                                <a href="tel:+91739703171">+91 7397043171</a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-link"></i>
-                            <div>
-                                <strong>Portfolio</strong><br>
-                                <a href="https://alexmorgan.dev" target="_blank">alexmorgan.dev</a>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://codepen.io" target="_blank" aria-label="CodePen">
-                            <i class="fab fa-codepen"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-info">
-                    <h3>Availability</h3>
-                  <p>I'm currently looking for full-time opportunities where I can grow as a developer and work on real-world projects. If you think I’m a good fit for your team, feel free to reach out!</p>
-
-<p>I usually respond to emails quickly, as I’m actively seeking opportunities and collaborations. For any immediate communication, the phone number provided can be used.</p>
-
-<!-- <p>You can also check my GitHub to explore my practice projects, learning progress, and the skills I’m building as I grow into a full-stack developer.</p> -->
-
-                    
-                    <a href="mailto:isenthiler@gmail.com" class="btn" style="margin-top: 20px;">Send Email</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo">Senthilkumar I</a>
-                <p class="copyright">© 2025 Senthilkumar. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://github.com" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                <p class="copyright">Designed & Developed with <i class="fas fa-heart" style="color: #ef4444;"></i></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+            const handleNavClick = (section) => {
+                setActiveSection(section);
+                setMobileMenuOpen(false);
+                // Smooth scroll to section
+                const element = document.getElementById(section);
+                if (element) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: element.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            }
-        });
-        
-        // Add fade-in animation for elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            };
+
+            useEffect(() => {
+                // Hide splash screen after 1.2 seconds
+                const timer = setTimeout(() => {
+                    setSplashVisible(false);
+                }, 1200);
+
+                // Add scroll effect to header
+                const handleScroll = () => {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 50) {
+                        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+                        header.style.backdropFilter = 'blur(20px)';
+                    } else {
+                        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                        header.style.backdropFilter = 'blur(10px)';
+                    }
+
+                    // Update active section based on scroll
+                    const sections = ['home', 'about', 'education', 'skills', 'projects', 'contact'];
+                    const currentSection = sections.find(section => {
+                        const element = document.getElementById(section);
+                        if (element) {
+                            const rect = element.getBoundingClientRect();
+                            return rect.top <= 150 && rect.bottom >= 150;
+                        }
+                        return false;
+                    });
+                    if (currentSection) {
+                        setActiveSection(currentSection);
+                    }
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                return () => {
+                    clearTimeout(timer);
+                    window.removeEventListener('scroll', handleScroll);
+                };
+            }, []);
+
+            return (
+                <>
+                    {/* Splash Overlay */}
+                    {splashVisible && (
+                        <div id="splash-overlay" className={!splashVisible ? 'fade-out' : ''}>
+                            <h1>Design &nbsp; Develop &nbsp; Deploy</h1>
+                        </div>
+                    )}
+
+                    {/* Header & Navigation */}
+                    <header>
+                        <div className="container">
+                            <nav className="navbar">
+                                <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}>Portfolio</a>
+                                <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+                                    <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}>Home</a></li>
+                                    <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>About</a></li>
+                                    <li><a href="#education" className={activeSection === 'education' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('education'); }}>Education</a></li>
+                                    <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('skills'); }}>Skills</a></li>
+                                    <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('projects'); }}>Projects</a></li>
+                                    <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a></li>
+                                </ul>
+                                <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+                                    <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+                                </button>
+                            </nav>
+                        </div>
+                    </header>
+
+                    {/* Hero Section */}
+                    <section id="home" className="hero">
+                        <div className="container">
+                            <div className="hero-content">
+                                <div className="profile-img-container">
+                                    <img src="im2.png" alt="Senthilkumar I" className="profile-img" />
+                                </div>
+                                <div className="hero-text">
+                                    <h1>Hi, I'm <span>Senthilkumar I</span></h1>
+                                    <div className="hero-btns">
+                                        <a href="#projects" className="btn" onClick={(e) => { e.preventDefault(); handleNavClick('projects'); }}>View My Work</a>
+                                        <a href="#contact" className="btn" onClick={(e) =>
+                                             { e.preventDefault(); handleNavClick('contact'); }}>Contact Me</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* About Section */}
+                    <section id="about" className="about">
+                        <div className="container">
+                            <div className="section-header">
+                                <h2>About Me</h2>
+                            </div>
+                            <div className="about-content">
+                                <div className="about-text">
+                                    <p>
+                                        I'm Senthilkumar, a passionate and enthusiastic fresher with a B.Tech in
+                                        Information Technology. I love exploring new technologies and building 
+                                        interactive and user-friendly web applications. I am eager to apply my 
+                                        skills to real-world projects and grow as a full-stack developer.
+                                        I enjoy learning, problem-solving, and creating projects that make a 
+                                        positive impact.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Education Section */}
+                    <section id="education" className="education">
+                        <div className="container">
+                            <div className="section-header">
+                                <h2>Education</h2>
+                            </div>
+                            <div className="education-timeline">
+                                <div className="timeline-item">
+                                    <h3>Erode Sengunthar Engineering College</h3>
+                                    <div className="degree">B.Tech Information Technology</div>
+                                    <div className="year">2021 - 2025</div>
+                                </div>
+                                <div className="timeline-item">
+                                    <h3>Velammal Matriculation Higher Secondary School</h3>
+                                    <div className="degree">HSC</div>
+                                    <div className="year">2019 - 2021</div>
+                                    <p>86%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Skills Section */}
+                    <section id="skills" className="skills">
+                        <div className="container">
+                            <div className="section-header">
+                                <h2>Skills</h2>
+                            </div>
+                            <div className="skills-container">
+                                <div className="skill-category">
+                                    <h3><i className="fas fa-paint-brush" style={{color: 'var(--primary)'}}></i> Frontend</h3>
+                                    <ul className="skill-list">
+                                        <li><span className="skill-name">HTML</span></li>
+                                        <li><span className="skill-name">CSS</span></li>
+                                        <li><span className="skill-name">JavaScript</span></li>
+                                        <li><span className="skill-name">Responsive Design</span></li>
+                                    </ul>
+                                </div>
+                                <div className="skill-category">
+                                    <h3><i className="fas fa-server" style={{color: 'var(--secondary)'}}></i> Backend</h3>
+                                    <ul className="skill-list">
+                                        <li><span className="skill-name">MySQL</span></li>
+                                        <li><span className="skill-name">PHP</span></li>
+                                        <li><span className="skill-name">Java</span></li>
+                                    </ul>
+                                </div>
+                                <div className="skill-category">
+                                    <h3><i className="fas fa-tools" style={{color: 'var(--accent)'}}></i> Tools & Others</h3>
+                                    <ul className="skill-list">
+                                        <li><span className="skill-name">VS Code</span></li>
+                                        <li><span className="skill-name">Git & GitHub</span></li>
+                                        <li><span className="skill-name">MySQL Workbench</span></li>
+                                        <li><span className="skill-name">XAMPP</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Projects Section */}
+                    <section id="projects" className="projects">
+                        <div className="container">
+                            <div className="section-header">
+                                <h2>Projects</h2>
+                            </div>
+                            <div className="projects-grid">
+                                <div className="project-card">
+                                    <div className="project-img">
+                                        <i className="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div className="project-content">
+                                        <h3>E-Commerce Website</h3>
+                                        <p>A fully functional e-commerce platform with user authentication, product catalog, shopping cart, and payment integration.</p>
+                                        <div className="tech-tags">
+                                            <span className="tech-tag">HTML</span>
+                                            <span className="tech-tag">CSS</span>
+                                            <span className="tech-tag">JavaScript</span>
+                                            <span className="tech-tag">PHP</span>
+                                            <span className="tech-tag">MySQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="project-card">
+                                    <div className="project-img">
+                                        <i className="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div className="project-content">
+                                        <h3>India Tourist Guide Website</h3>
+                                        <p>A dynamic website designed to help tourists explore the top attractions in India.</p>
+                                        <div className="tech-tags">
+                                            <span className="tech-tag">HTML</span>
+                                            <span className="tech-tag">CSS</span>
+                                            <span className="tech-tag">JavaScript</span>
+                                            <span className="tech-tag">PHP</span>
+                                            <span className="tech-tag">MySQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Contact Section */}
+                    <section id="contact" className="contact">
+                        <div className="container">
+                            <div className="section-header">
+                                <h2>Contact Me</h2>
+                            </div>
+                            <div className="contact-container">
+                                <div className="contact-info">
+                                    <h3>Get In Touch</h3>
+                                    <ul className="contact-details">
+                                        <li>
+                                            <i className="fas fa-envelope"></i>
+                                            <div>
+                                                <strong>Email</strong><br/>
+                                                <a href="mailto:isenthiler@gmail.com">isenthiler@gmail.com</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i className="fas fa-phone"></i>
+                                            <div>
+                                                <strong>Phone</strong><br/>
+                                                <a href="tel:+917397043171">+91 7397043171</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div className="contact-info">
+                                    <h3>Availability</h3>
+                                    <p>I'm currently looking for full-time opportunities where I can grow as a developer and work on real-world projects. If you think I'm a good fit for your team, feel free to reach out!</p>
+                                    <p>I usually respond to emails quickly, as I'm actively seeking opportunities and collaborations. For any immediate communication, the phone number provided can be used.</p>
+                                    <a href="mailto:isenthiler@gmail.com" className="btn" style={{marginTop: '20px'}}>Send Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer>
+                        <div className="container">
+                            <div className="footer-content">
+                                <div className="footer-social">
+                                    <a href="https://github.com/senthilkumar004/senthilkumar004.github.io" target="_blank" aria-label="GitHub">
+                                        <i className="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/senthilkumar-i-3a0519240" target="_blank" aria-label="LinkedIn">
+                                        <i className="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/__v_ra__?igsh=MTM1MzI0cW51dDExaw==" target="_blank" aria-label="Instagram">
+                                        <i className="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <p className="copyright">© 2025 Senthilkumar I. All rights reserved.</p>
+                                <p className="copyright">Designed & Developed with <i className="fas fa-heart" style={{color: 'var(--secondary)'}}></i></p>
+                            </div>
+                        </div>
+                    </footer>
+                </>
+            );
         };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+
+        const App = () => {
+            return <Portfolio />;
+        };
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
 </body>
 </html>
